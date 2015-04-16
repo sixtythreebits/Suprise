@@ -5,3 +5,17 @@ http://localhost:1516/checkout/ - 16-Apr-15 14:20:02
 Object reference not set to an instance of an object.
 ------------------------------------
 
+
+
+------------------------------------
+http://localhost:1516/email-subscription/ - 16-Apr-15 16:57:16
+AddEmailToTheList(Email = asdf@asdf.fdsa) - Invalid MailChimp List ID: 525941
+------------------------------------
+
+
+
+------------------------------------
+http://localhost:1516/email-subscription/ - 16-Apr-15 16:59:33
+AddEmailToTheList(Email = asdfds@asdf.fds) - Invalid MailChimp List ID: 525941
+------------------------------------
+

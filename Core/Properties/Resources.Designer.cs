@@ -88,11 +88,29 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$.
+        /// </summary>
+        public static string RegexEmail {
+            get {
+                return ResourceManager.GetString("RegexEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please make sure that you&apos;ve selected your product and put all neccessary information that is required..
         /// </summary>
         public static string RequiredAllFields {
             get {
                 return ResourceManager.GetString("RequiredAllFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please provide correct email address..
+        /// </summary>
+        public static string RequiredEmail {
+            get {
+                return ResourceManager.GetString("RequiredEmail", resourceCulture);
             }
         }
     }

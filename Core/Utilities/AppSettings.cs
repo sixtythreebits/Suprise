@@ -5,10 +5,21 @@ namespace Core.Utilities
 {
     public class AppSettings
     {
+        public static string AdminUser
+        {
+            get { return ConfigurationManager.AppSettings["AdminUser"]; }            
+        }
+
+        public static string AdminPass
+        {
+            get { return ConfigurationManager.AppSettings["AdminPass"]; }
+        }
+
         public static string LogFilePath
         {
             get { return string.Format("{0}\\App_data\\ErrorLog.txt", HttpRuntime.AppDomainAppPath); }
         }
+
 
         public static string UploadFilePhysicalPath
         {

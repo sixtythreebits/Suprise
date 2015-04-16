@@ -1,9 +1,11 @@
 ﻿using Core;
+using Core.Properties;
 using Core.Utilities;
 using Suprise.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,9 +22,15 @@ namespace Suprise.Controllers
                 Session.Remove("paypal-success");
                 ViewBag.PaypalSuccess = true;
             }
+
+            if (Session["email-success"] != null)
+            {
+                Session.Remove("email-success");
+                ViewBag.EmailSuccess = true;
+            }
             return View();
         }
-
+        #region Paypal
         [Route("checkout/")]
         [HttpPost]
         public ActionResult PaypalInitPayment(CheckoutModel CheckoutModelProperty)
@@ -37,6 +45,7 @@ namespace Suprise.Controllers
             )
             {
                 Model.CheckoutModelProperty.IsError = true;
+                Model.CheckoutModelProperty.ErrorMessage = Resources.RequiredAllFields;
                 return View("Index", Model);
             }
             else
@@ -70,11 +79,14 @@ namespace Suprise.Controllers
                         {
                             R.TSP_Orders(iud: 2, ID: OrderID);
                             Model.CheckoutModelProperty.IsError = true;
+                            Model.CheckoutModelProperty.ErrorMessage = Resources.Abort;
                             return View("Index", Model);
                         }
                     }
                     catch(Exception ex)
                     {
+                        Model.CheckoutModelProperty.IsError = true;
+                        Model.CheckoutModelProperty.ErrorMessage = Resources.Abort;
                         ex.Message.LogString();
                     }
 
@@ -82,6 +94,7 @@ namespace Suprise.Controllers
                 else
                 {
                     Model.CheckoutModelProperty.IsError = true;
+                    Model.CheckoutModelProperty.ErrorMessage = Resources.Abort;
                     return View("Index", Model);
                 }
                 return Redirect("/success/");
@@ -109,17 +122,38 @@ namespace Suprise.Controllers
                 return Redirect("/");
             }
         }
+        #endregion Paypal
 
-        [Route("success/")]
-        public ActionResult Success()
+        #region MailChamp
+        [Route("email-subscription/")]
+        [HttpPost]
+        public ActionResult EmailSubscription(EmailSubscriptionModel EmailSubscriptionModelProperty)
         {
-            return View();
-        }
+            var Model = new IndexModel() { EmailSubscriptionModelProperty = EmailSubscriptionModelProperty };
 
-        [Route("error/")]
-        public ActionResult Error()
-        {
-            return View();
+            if (!string.IsNullOrWhiteSpace(Model.EmailSubscriptionModelProperty.Email) && Regex.IsMatch(Model.EmailSubscriptionModelProperty.Email, Resources.RegexEmail))
+            {
+
+                var R = new MailChimpRepository();
+                R.AddEmailToTheList(Model.EmailSubscriptionModelProperty.Email);
+                if (R.IsError)
+                {
+                    Model.EmailSubscriptionModelProperty.IsError = true;
+                    Model.EmailSubscriptionModelProperty.ErrorMessage = Resources.Abort;                    
+                }
+                else
+                {
+                    Session["email-success"] = true;
+                    return Redirect("/");
+                }                
+            }
+            else
+            {
+                Model.EmailSubscriptionModelProperty.IsError = true;
+                Model.EmailSubscriptionModelProperty.ErrorMessage = Resources.RequiredEmail;                
+            }
+            return View("Index", Model);
         }
-	}
+        #endregion MailChamp
+    }
 }

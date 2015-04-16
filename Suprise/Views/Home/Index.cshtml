@@ -17,7 +17,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
-    <title>SupriseLa</title>
+    <title>Surprise La | Send surprises gifts of your enemy and friends in Singapore</title>
     <link rel="stylesheet" type="text/css" href="/css/fonts.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href="/css/utils.css" rel="stylesheet" />
@@ -83,21 +83,21 @@
             <div>
                 <img src="/images/icons/hiw1.png" alt="" />
                 <p>
-                    Decide whose day you want to make or break. Be it shitty neighbour, family member or coluge OR that cute girl next door,wife and mistress.
+                    Decide whose day you want to make or break. Be it shitty neighbours, family member or colleague OR that cute girl next door, your wife or mistress.
                 </p>
             </div>
 
             <div>
                 <img src="/images/icons/hiw2.png" alt="" />
                 <p>
-                    Select from 2 of Dil’s curated items, glitter flies or chocolate rose!
+                    Select from the best curation of Dil’s surprises items, like glitter flies or chocolate rose!
                 </p>
             </div>
 
             <div>
                 <img src="/images/icons/hiw3.png" alt="" />
                 <p>
-                    Fill in the shipping details, we dont care about you. Please include a note telling the person exactly why they're receiving this suprise gift *Note: No one will know unless you open your mouth
+                    Fill in who you want to send your surprise. Please include a note telling the person exactly why they're receiving this surprise gift *Note: No one will know unless you open your mouth 
                 </p>
             </div>
         </div>
@@ -110,21 +110,21 @@
         <ul>
             <li>
                 <p>
-                    I bought this for my husband, he opened the mail before work & got it everywhere! He had to change, was late for work & might be getting fired, LOL!
+                    Got a Chocolate rose surprise for my girlfriend, kinda odd, she did not tell me anything about it!
                 </p>
-                <span>- James Pinto</span>
+                <span>– Kenneth Mole</span>
             </li>
             <li>
                 <p>
-                    I bought this for my husband, he opened the mail before work & got it everywhere! He had to change, was late for work & might be getting fired, LOL!
+                    Thanks you, my director deserved it! In you face you lazy barsted
                 </p>
-                <span>- James Pinto</span>
+                <span>- Kang</span>
             </li>
             <li>
                 <p>
-                    I bought this for my husband, he opened the mail before work & got it everywhere! He had to change, was late for work & might be getting fired, LOL!
+                    Thanks surprisela.com, you guys rock, it will be good if you can add more surprise to choose from.
                 </p>
-                <span>- James Pinto</span>
+                <span>- Kairul</span>
             </li>
         </ul>
     </section>
@@ -194,7 +194,7 @@
                     }
                     @if (CheckoutModel.IsError == true)
                     {
-                        <p class="error-message">@Core.Properties.Resources.RequiredAllFields</p><br />
+                        <p class="error-message">@CheckoutModel.ErrorMessage</p><br />
                         <script>
                             $(function () { $(window).scrollTo("#buy-now", { offset: { top: 500 }, duration: 300 }, { easing: 'elasout' }); });
                         </script>
@@ -217,21 +217,39 @@
             </figure>
         </div>
     </section>
+    <form action="/email-subscription/" method="post">
+        <div id="email-subscribe" class="subscribe">
+            <label>Subscribe to have more surprise</label>
+            <input type="text" placeholder="Email Address" name="Email" value="@EmailSubscriptionModel.Email" />
 
-    <div class="subscribe">
-        <label>Subscribe to have more suprise</label>
-        <input type="text" placeholder="Email Address" />
-        <input type="button" value="Cheackout" />
-    </div>
-
-    <footer>
-        <div class="social">
-            <a href="#"><img src="/images/icons/facebook.png" alt="facebook" /></a>
-            <a href="#"><img src="/images/icons/twitter.png" alt="twitter" /></a>
+            @if ((bool?)ViewBag.EmailSuccess == true)
+            {
+                <label>@Core.Properties.Resources.InformationEmailSubscribeSuccess</label>
+                <script>
+                    $(function () { $(window).scrollTo("#email-subscribe", { offset: { top: 500 }, duration: 300 }, { easing: 'elasout' }); });
+                </script>
+            }
+            else
+            {
+                <input type="submit" value="Subscribe" />
+            }
+            @if (EmailSubscriptionModel.IsError == true)
+            {
+                <label>@EmailSubscriptionModel.ErrorMessage</label>
+                <script>
+                    $(function () { $(window).scrollTo("#email-subscribe", { offset: { top: 500 }, duration: 300 }, { easing: 'elasout' }); });
+                </script>
+            }
         </div>
-        <p>
-            © SupriseHero By Booxify Pte Ltd 2015. All Rights Reserved. Ter
-        </p>
-    </footer>
+    </form>
+        <footer>
+            <div class="social">
+                <a href="#"><img src="/images/icons/facebook.png" alt="facebook" /></a>
+                <a href="#"><img src="/images/icons/twitter.png" alt="twitter" /></a>
+            </div>
+            <p>
+                © SupriseHero By Booxify Pte Ltd 2015. All Rights Reserved. Ter
+            </p>
+        </footer>
 </body>
 </html>

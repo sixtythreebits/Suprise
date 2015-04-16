@@ -5,11 +5,71 @@ using Core.DB;
 using Newtonsoft.Json;
 using RestSharp;
 using Core.Utilities;
+using MailChimp;
+using MailChimp.Helper;
+using System.Configuration;
 
 namespace Core
 {
+    public class MailChimpRepository
+    {
+        public bool IsError { set; get; }
+
+        public void AddEmailToTheList(string Email)
+        {
+            try
+            {
+                var mc = new MailChimpManager(ConfigurationManager.AppSettings["MailChampApiKey"]);
+
+                //  Create the email parameter
+                var email = new EmailParameter()
+                {
+                    Email = Email
+                };
+
+                EmailParameter results = mc.Subscribe(ConfigurationManager.AppSettings["MailChampListID"], email);
+            }
+            catch (Exception ex)
+            {
+                IsError = true;
+                string.Format("AddEmailToTheList(Email = {0}) - {1}", Email, ex.Message).LogString();
+            }
+        }
+    }
+
     public class OrdersRepository
     {
+        public static List<Order> ListOrders()
+        {
+            try
+            {
+                using (var db = ConnectionFactory.GetDBCoreDataContext())
+                {
+                    return db.List_Orders()
+                    .OrderByDescending(o => o.CRTime)
+                    .Select(o => new Order
+                    {
+                        ID = o.OrderID,
+                        IsLovePack = o.IsLovePack,
+                        Price = o.Price,
+                        Recipient = o.Recipient,
+                        Address = o.Address,
+                        ZipCode = o.ZipCode,
+                        Note = o.Note,
+                        IsPaid = o.IsPaid,
+                        IsDelivered = o.IsDelivered,
+                        CRTime = o.CRTime
+
+                    }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                string.Format("ListOrders() - {0}", ex.Message).LogString();
+                return null;
+            }
+        }
+
         public int? TSP_Orders(byte? iud = null, int? ID = null, bool? IsLovePack = null, decimal? Price = null, string Recipient = null, string Address = null, string ZipCode = null, string Note = null, bool? IsPaid = null, bool? IsDelivered = null)
         {
             try
@@ -31,7 +91,7 @@ namespace Core
     public class Order
     {
         public int? ID{ set; get; } 
-        public bool IsLovePack{ set; get; } 
+        public bool IsLovePack{ set; get; }         
         public decimal? Price{ set; get; } 
         public string Recipient{ set; get; } 
         public string Address{ set; get; } 
@@ -45,14 +105,16 @@ namespace Core
 
     public class PayPalService
     {
-        static string ClientID = "AXjkPEBS7wQanEs78iq5fGp1GrryqtC9XMilKiRKRqS5mG798lq1H3vDNXb9RcERTSU-GQq4qKBr0CSP";
-        static string Secret = "EJOxqwvLP9PVdHQd8OzmwqJvHsRaznQoy9exMJvulc_DiMgVXQfki2UjobjytgAvVDt7trl16mmqDtdI";
-        static string Url = "https://api.sandbox.paypal.com/v1/";
-
-
+        #region Properties
+        static string ClientID = ConfigurationManager.AppSettings["PaypalClientID"];
+        static string Secret = ConfigurationManager.AppSettings["PaypalSecret"];
+        static string Url = ConfigurationManager.AppSettings["PaypalExpressUrl"];
+        
         static string AccessToken = null;
         static DateTime AccessTokenExpiration = DateTime.Now;
+        #endregion Properties
 
+        #region Methods
         public static CreatePaymentReturnResult CreatePayment(string Caption, string Price, string ReturnUrl, string CancelUrl, int? OrderID)
         {
             // Access Token initialization
@@ -181,6 +243,7 @@ namespace Core
                 AccessTokenExpiration = DateTime.Now.AddSeconds(R.expires_in);
             }
         }
+        #endregion Methods
     }
 
     #region Response Classes

@@ -126,7 +126,13 @@
   <data name="InformationPurchaseSuccess" xml:space="preserve">
     <value>Thank you for purchasing our product.</value>
   </data>
+  <data name="RegexEmail" xml:space="preserve">
+    <value>^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$</value>
+  </data>
   <data name="RequiredAllFields" xml:space="preserve">
     <value>Please make sure that you've selected your product and put all neccessary information that is required.</value>
+  </data>
+  <data name="RequiredEmail" xml:space="preserve">
+    <value>Please provide correct email address.</value>
   </data>
 </root>

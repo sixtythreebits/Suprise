@@ -76,6 +76,8 @@ namespace Suprise.Models
         #region Properties
         public bool? IsError { set; get; }
         public FormErrors Errors { set; get; }
+
+        public string ErrorMessage { set; get; }
         #endregion Properties
 
         #region Constructors

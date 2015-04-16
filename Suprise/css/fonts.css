@@ -18,24 +18,3 @@
 	font-weight: bold;
 	font-style: normal;
 }
-
-@font-face {
-	font-family: 'Raavi';
-	src: url('../fonts/raavi/raavi.eot');
-	src: url('../fonts/raavi/raavi.eot?#iefix') format('embedded-opentype'),
-			 url('../fonts/raavi/raavi.woff') format('woff'),
-			 url('../fonts/raavi/raavi.ttf') format('truetype'),
-			 url('../fonts/raavi/raavi.svg#Raavi') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Raavi';
-	src: url('../fonts/raavi/raavib.eot');
-	src: url('../fonts/raavi/raavib.eot?#iefix') format('embedded-opentype'),
-			 url('../fonts/raavi/raavib.woff') format('woff'),
-			 url('../fonts/raavi/raavib.ttf') format('truetype'),
-			 url('../fonts/raavi/raavib.svg#Raavi') format('svg');
-	font-weight: bold;
-	font-style: normal;
-}
