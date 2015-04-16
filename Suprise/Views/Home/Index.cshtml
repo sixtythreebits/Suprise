@@ -25,6 +25,12 @@
     <script src="/js/jquery-2.1.1.min.js"></script>
     <script src="/js/jquery.scrollTo-1.4.3.1-min.js"></script>
     <script src="/js/utils.js"></script>
+
+    <script src="/fancybox/jquery.fancybox.js"></script>
+    <link href="/fancybox/jquery.fancybox.css" rel="stylesheet" />
+
+
+
     <script src="/js/js.js"></script>
 </head>
 
@@ -32,8 +38,8 @@
     <div class="header" id="home">
         <header class="cl">
             <span class="social">
-                <a href="#"><img src="/images/icons/facebook.png" alt="facebook" /></a>
-                <a href="#"><img src="/images/icons/twitter.png" alt="twitter" /></a>
+                <a href="http://www.facebook.com/surprisela" target="_blank"><img src="/images/icons/facebook.png" alt="facebook" /></a>
+                <a href="http://www.twitter.com/surprisela" target="_blank"><img src="/images/icons/twitter.png" alt="twitter" /></a>
             </span>
             <nav>
                 <ul>
@@ -55,14 +61,14 @@
         <section class="suprise">
             <figure>
                 <img src="/images/normal.png" alt="" />
-                <figcaption>
+                @*<figcaption>
                     <p>
                         <strong>Hi, I’m Dil</strong>
                         I have curated 2
                         Suprises, one good
                         and one even better
                     </p>
-                </figcaption>
+                </figcaption>*@
             </figure>
             <article>
                 <h1>Suprise<span>La</span></h1>
@@ -178,7 +184,7 @@
                     <fieldset>
                         <input type="text" placeholder="Recipient Name" name="Recipient" maxlength="80" value="@CheckoutModel.Recipient" />
                         <input type="text" placeholder="Address" name="Address" maxlength="200" value="@CheckoutModel.Address" />
-                        <input type="text" placeholder="Postal Code" name="Zip" maxlength="5" value="@CheckoutModel.Zip" />
+                        <input type="text" placeholder="Postal Code" name="Zip" maxlength="10" value="@CheckoutModel.Zip" />
                         <textarea rows="3" placeholder="Note To Recipient/Shipping Remarks" name="Note" maxlength="500">@CheckoutModel.Note</textarea>
                     </fieldset>
                     @if ((bool?)ViewBag.PaypalSuccess == true)
@@ -244,12 +250,52 @@
     </form>
         <footer>
             <div class="social">
-                <a href="#"><img src="/images/icons/facebook.png" alt="facebook" /></a>
-                <a href="#"><img src="/images/icons/twitter.png" alt="twitter" /></a>
+                <a href="http://www.facebook.com/surprisela" target="_blank"><img src="/images/icons/facebook.png" alt="facebook" /></a>
+                <a href="http://www.twitter.com/surprisela" target="_blank"><img src="/images/icons/twitter.png" alt="twitter" /></a>
             </div>
             <p>
-                © SupriseHero By Booxify Pte Ltd 2015. All Rights Reserved. Ter
+                © SupriseHero By Booxify Pte Ltd 2015. All Rights Reserved. <a class="terms" href="#terms">Terms</a>
+                <div class="hidden">
+                    <div id="terms" style="width:500px; height:350px;">
+                        <strong>TERMS</strong><br /><br />
+                        BY USING THE WEB SITE (WWW.SURPRISELA.COM), YOU ACCEPT
+                        AND AGREE TO THESE TERMS OF USE AS APPLIED TO YOUR USE OF
+                        THE WEB SITE. FURTHER, YOU REPRESENT THAT YOU ARE AT LEAST
+                        18 YEARS OLD AND THAT YOU ARE LEGALLY ABLE TO ENTER INTO
+                        THIS AGREEMENT.<br /><br />
+                        THIS WEB SITE ENABLES YOU TO SURPRISES TO THE PERSON OF
+                        YOUR CHOOSING. IT IS OUR SOLE INTENTION THAT THIS SERVICE
+                        WILL ALLOW YOU AND THE RECIPIENT TO ENGAGE IN A JOKE. THIS
+                        WEB SITE, AND ITS OPERATOR, PROHIBITS AND DOES NOT CONDONE
+                        USE OF THE SERVICE AVAILABLE VIA THE WEB SITE TO ENGAGE IN
+                        ILLEGAL ACTIVITIES OR TO HARASS OR INTIMIDATE. IF IT IS YOUR
+                        INTENTION TO USE THIS WEB SITE AND/OR THE SERVICES PROVIDED
+                        VIA THIS WEB SITE FOR THE PURPOSE OF HARASSMENT,
+                        ANNOYANCE, PROVOCATION, STALKING, HUMILIATION,
+                        EMBARASSMENT, INTIMIDATION, BULLYING OF MINORS OR ANY
+                        ILLEGAL PURPOSE WHATSOEVER YOU ARE PROHIBITED FROM USING
+                        THIS WEB SITE AND/OR THE SERVICES PROVIDED VIA THIS WEB SITE.
+                    </div>
+                </div>
             </p>
         </footer>
 </body>
+<script>
+    $(function () {
+        $(".terms").fancybox({
+            transitionIn: 'elastic',
+            transitionOut: 'elastic',
+            speedIn: 600,
+            speedOut: 200,
+            overlayShow: false,            
+            helpers:
+           {
+               overlay:
+                   {                       
+                       locked: false
+                   }
+           },
+        });
+    });
+</script>
 </html>

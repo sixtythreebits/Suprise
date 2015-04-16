@@ -215,6 +215,15 @@
     <Content Include="css\fonts.css" />
     <Content Include="css\style.css" />
     <Content Include="css\utils.css" />
+    <Content Include="fancybox\blank.gif" />
+    <Content Include="fancybox\fancybox_loading%402x.gif" />
+    <Content Include="fancybox\fancybox_loading.gif" />
+    <Content Include="fancybox\fancybox_overlay.png" />
+    <Content Include="fancybox\fancybox_sprite%402x.png" />
+    <Content Include="fancybox\fancybox_sprite.png" />
+    <Content Include="fancybox\jquery.fancybox.css" />
+    <Content Include="fancybox\jquery.fancybox.js" />
+    <Content Include="fancybox\jquery.fancybox.pack.js" />
     <Content Include="fonts\lao_ui\LaoUI.svg" />
     <Content Include="fonts\lao_ui\LaoUIb.svg" />
     <Content Include="Global.asax" />
