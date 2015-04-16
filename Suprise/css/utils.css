@@ -1,0 +1,51 @@
+﻿.left {
+    float: left !important;
+}
+
+.right {
+    float: right !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.disabled {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.img-rounded{
+	border-radius:999px;
+}
+
+.center {
+    text-align:center !important;
+}
+
+.center a {
+    margin: 0 auto;
+}
+.highlight{
+	background-color:#ffe58a;
+}
+.fix {
+    position:fixed;
+}
+/*-------------------- Colors --------------------*/
+.light-blue {
+    color: #1E90FF;
+}
+.green {
+    color: green;
+}
+.purple {
+    color: purple;
+}
+.blue {
+    color: blue;
+}
+.red {
+    color: #cd1018;
+}
+/*-------------------/ Colors --------------------*/

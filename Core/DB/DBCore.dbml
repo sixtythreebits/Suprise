@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Suprise" Class="DBCoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=srv63bits;Initial Catalog=Suprise;Persist Security Info=True;User ID=sa" SettingsObjectName="Core.Properties.Settings" SettingsPropertyName="SupriseConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.tsp_Orders" Method="tsp_Orders">
+    <Parameter Name="iud" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IsLovePack" Parameter="isLovePack" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Price" Parameter="price" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Recipient" Parameter="recipient" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ZipCode" Parameter="zipCode" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Note" Parameter="note" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="IsPaid" Parameter="isPaid" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsDelivered" Parameter="isDelivered" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.List_Orders" Method="List_Orders" IsComposable="true">
+    <ElementType Name="List_OrdersResult">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsLovePack" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Recipient" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ZipCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="IsPaid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelivered" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CRTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

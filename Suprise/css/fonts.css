@@ -1,0 +1,41 @@
+@font-face {
+	font-family: 'Lao UI';
+	src: url('../fonts/lao_ui/LaoUI.eot');
+	src: url('../fonts/lao_ui/LaoUI.eot?#iefix') format('embedded-opentype'),
+			 url('../fonts/lao_ui/LaoUI.woff') format('woff'),
+			 url('../fonts/lao_ui/LaoUI.ttf') format('truetype'),
+			 url('../fonts/lao_ui/LaoUI.svg#Lao UI') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Lao UI';
+	src: url('../fonts/lao_ui/LaoUIb.eot');
+	src: url('../fonts/lao_ui/LaoUIb.eot?#iefix') format('embedded-opentype'),
+			 url('../fonts/lao_ui/LaoUIb.woff') format('woff'),
+			 url('../fonts/lao_ui/LaoUIb.ttf') format('truetype'),
+			 url('../fonts/lao_ui/LaoUIb.svg#Lao UI') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Raavi';
+	src: url('../fonts/raavi/raavi.eot');
+	src: url('../fonts/raavi/raavi.eot?#iefix') format('embedded-opentype'),
+			 url('../fonts/raavi/raavi.woff') format('woff'),
+			 url('../fonts/raavi/raavi.ttf') format('truetype'),
+			 url('../fonts/raavi/raavi.svg#Raavi') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Raavi';
+	src: url('../fonts/raavi/raavib.eot');
+	src: url('../fonts/raavi/raavib.eot?#iefix') format('embedded-opentype'),
+			 url('../fonts/raavi/raavib.woff') format('woff'),
+			 url('../fonts/raavi/raavib.ttf') format('truetype'),
+			 url('../fonts/raavi/raavib.svg#Raavi') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}

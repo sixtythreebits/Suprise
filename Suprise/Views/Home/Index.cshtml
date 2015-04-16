@@ -1,0 +1,237 @@
+﻿@using Suprise.Models;
+@model IndexModel
+@{
+    var CheckoutModel = new CheckoutModel();
+    var EmailSubscriptionModel = new EmailSubscriptionModel();
+    if(Model!=null && Model.CheckoutModelProperty!=null)
+    {
+        CheckoutModel = Model.CheckoutModelProperty;
+    }
+    if (Model != null && Model.EmailSubscriptionModelProperty != null)
+    {
+        EmailSubscriptionModel = Model.EmailSubscriptionModelProperty;
+    }    
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>SupriseLa</title>
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="/css/utils.css" rel="stylesheet" />
+    <link type="image/png" rel="icon" href="/images/favicon.png" />
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/js.js"></script>
+</head>
+
+<body>
+    <div class="header" id="home">
+        <header class="cl">
+            <span class="social">
+                <a href="#"><img src="/images/icons/facebook.png" alt="facebook" /></a>
+                <a href="#"><img src="/images/icons/twitter.png" alt="twitter" /></a>
+            </span>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#how-it-works">How It Works</a>
+                    </li>
+                    <li>
+                        <a href="#reviews">Reviews</a>
+                    </li>
+                    <li>
+                        <a href="#buy-now">Buy Now</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="suprise">
+            <figure>
+                <img src="/images/normal.png" alt="" />
+                <figcaption>
+                    <p>
+                        <strong>Hi, I’m Dil</strong>
+                        I have curated 2
+                        Suprises, one good
+                        and one even better
+                    </p>
+                </figcaption>
+            </figure>
+            <article>
+                <h1>Suprise<span>La</span></h1>
+                <p>
+                    I send surprises to your enemy or secret lover today for SGD$8.70! Let us send them a hate or love pack that is
+                    guaranteed either piss them off or make them fall in love with you!
+                </p>
+                <a href="#buy-now" class="btn">Buy Now</a>
+            </article>
+        </section>
+    </div>
+
+
+    <section class="how-it-works" id="how-it-works">
+        <h3>How It Works</h3>
+
+        <div>
+            <div>
+                <img src="/images/icons/hiw1.png" alt="" />
+                <p>
+                    Decide whose day you want to make or break. Be it shitty neighbour, family member or coluge OR that cute girl next door,wife and mistress.
+                </p>
+            </div>
+
+            <div>
+                <img src="/images/icons/hiw2.png" alt="" />
+                <p>
+                    Select from 2 of Dil’s curated items, glitter flies or chocolate rose!
+                </p>
+            </div>
+
+            <div>
+                <img src="/images/icons/hiw3.png" alt="" />
+                <p>
+                    Fill in the shipping details, we dont care about you. Please include a note telling the person exactly why they're receiving this suprise gift *Note: No one will know unless you open your mouth
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="reviews" id="reviews">
+        <h3>Reviews</h3>
+
+        <ul>
+            <li>
+                <p>
+                    I bought this for my husband, he opened the mail before work & got it everywhere! He had to change, was late for work & might be getting fired, LOL!
+                </p>
+                <span>- James Pinto</span>
+            </li>
+            <li>
+                <p>
+                    I bought this for my husband, he opened the mail before work & got it everywhere! He had to change, was late for work & might be getting fired, LOL!
+                </p>
+                <span>- James Pinto</span>
+            </li>
+            <li>
+                <p>
+                    I bought this for my husband, he opened the mail before work & got it everywhere! He had to change, was late for work & might be getting fired, LOL!
+                </p>
+                <span>- James Pinto</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="buy-now" id="buy-now">
+        <div>
+            <h3>Buy Now</h3>
+
+            <form action="/checkout/" method="post">
+                <div class="form">
+                    <div class="col2">
+                        <div class="radio">
+                            <label for="devil">
+                                <strong>Glitter Flies Suprise</strong>
+                                <figure>
+                                    <img src="/images/devil.png" alt="" />
+                                    <figcaption>
+                                        SGD $8.70
+                                    </figcaption>
+                                </figure>
+                                <span>
+                                    <b>Includes</b>
+                                    - Bunch of Flies<br />
+                                    - Black Glitter<br />
+                                    - Dil’s Hate Letter
+                                </span>
+                            </label>
+                            <input id="devil" name="Product" type="radio" value="devil" />
+                        </div>
+
+                        <div class="radio">
+                            <label for="angel">
+                                <strong>Chocolate Rose Suprise</strong>
+                                <figure>
+                                    <img src="/images/angel.png" alt="" />
+                                    <figcaption>
+                                        SGD $8.70
+                                    </figcaption>
+                                </figure>
+                                <span>
+                                    <b>Includes</b>
+                                    - 1 Red Rose<br />
+                                    - Chocolates or Candy<br />
+                                    - Dil’s Love Letter
+                                </span>
+                            </label>
+                            <input id="angel" name="Product" type="radio" value="angel" />
+                        </div>
+
+                    </div>
+                    <fieldset>
+                        <input type="text" placeholder="Recipient Name" name="Recipient" maxlength="80" value="@CheckoutModel.Recipient" />
+                        <input type="text" placeholder="Address" name="Address" maxlength="200" value="@CheckoutModel.Address" />
+                        <input type="text" placeholder="Postal Code" name="Zip" maxlength="5" value="@CheckoutModel.Zip" />
+                        <textarea rows="3" placeholder="Note To Recipient/Shipping Remarks" name="Note" maxlength="500">@CheckoutModel.Note</textarea>
+                    </fieldset>
+                    @if ((bool?)ViewBag.PaypalSuccess == true)
+                    {
+                        <p class="success-message">@Core.Properties.Resources.InformationPurchaseSuccess</p><br />
+                        <script>
+                            $(function () { $(window).scrollTo("#buy-now", { offset: { top: 500 }, duration: 300 }, { easing: 'elasout' }); });
+                        </script>
+                    }
+                    else
+                    { 
+                        <input type="submit" value="Cheackout" />
+                    }
+                    @if (CheckoutModel.IsError == true)
+                    {
+                        <p class="error-message">@Core.Properties.Resources.RequiredAllFields</p><br />
+                        <script>
+                            $(function () { $(window).scrollTo("#buy-now", { offset: { top: 500 }, duration: 300 }, { easing: 'elasout' }); });
+                        </script>
+                    }
+
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="surprise-reel">
+        <h3>Surprise Reel</h3>
+
+        <div>
+            <figure class="cl">
+                <img src="/images/0/01.jpg" alt="" />
+                <img src="/images/0/01.jpg" alt="" />
+                <img src="/images/0/01.jpg" alt="" />
+                <img src="/images/0/01.jpg" alt="" />
+            </figure>
+        </div>
+    </section>
+
+    <div class="subscribe">
+        <label>Subscribe to have more suprise</label>
+        <input type="text" placeholder="Email Address" />
+        <input type="button" value="Cheackout" />
+    </div>
+
+    <footer>
+        <div class="social">
+            <a href="#"><img src="/images/icons/facebook.png" alt="facebook" /></a>
+            <a href="#"><img src="/images/icons/twitter.png" alt="twitter" /></a>
+        </div>
+        <p>
+            © SupriseHero By Booxify Pte Ltd 2015. All Rights Reserved. Ter
+        </p>
+    </footer>
+</body>
+</html>
