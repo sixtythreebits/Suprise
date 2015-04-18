@@ -30,6 +30,12 @@ namespace Suprise.Controllers
             }
             return View();
         }
+        
+        public ActionResult Terms()
+        {
+            return View();
+        }
+
         #region Paypal
         [Route("checkout/")]
         [HttpPost]

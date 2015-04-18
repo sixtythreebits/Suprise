@@ -455,8 +455,18 @@ section h3{
     font-size:20px;
     text-align:center;
 }
-.terms
+.terms-link
 {
     color:#c21a01;
     text-decoration:none;
+}
+.terms
+{
+    width:820px; 
+    height:600px;     
+}
+
+.terms p
+{
+    width:770px;    
 }

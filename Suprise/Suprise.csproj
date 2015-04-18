@@ -221,6 +221,7 @@
     <Content Include="fancybox\fancybox_overlay.png" />
     <Content Include="fancybox\fancybox_sprite%402x.png" />
     <Content Include="fancybox\fancybox_sprite.png" />
+    <Content Include="fancybox\FancyMethods.js" />
     <Content Include="fancybox\jquery.fancybox.css" />
     <Content Include="fancybox\jquery.fancybox.js" />
     <Content Include="fancybox\jquery.fancybox.pack.js" />
@@ -301,7 +302,7 @@
     <Content Include="images\angel.png" />
     <Content Include="images\com_box.png" />
     <Content Include="images\devil.png" />
-    <Content Include="images\Favicon.png" />
+    <Content Include="images\favicon.ico" />
     <Content Include="images\header-bg.jpg" />
     <Content Include="images\icons\facebook.png" />
     <Content Include="images\icons\hiw1.png" />
@@ -324,9 +325,6 @@
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Success.cshtml" />
-    <Content Include="Views\Home\Error.cshtml" />
-    <Content Include="Views\Home\Terms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.Master.cs">
@@ -368,6 +366,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Home\Terms.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
