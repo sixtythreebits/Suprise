@@ -79,6 +79,15 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, we could not charge your paypal account..
+        /// </summary>
+        public static string InformationPurchaseError {
+            get {
+                return ResourceManager.GetString("InformationPurchaseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thank you for purchasing our product..
         /// </summary>
         public static string InformationPurchaseSuccess {

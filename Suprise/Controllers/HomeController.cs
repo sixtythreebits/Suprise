@@ -19,8 +19,8 @@ namespace Suprise.Controllers
         {
             if (Session["paypal-success"] != null)
             {
+                ViewBag.PaypalSuccess = (bool?)Session["paypal-success"];
                 Session.Remove("paypal-success");
-                ViewBag.PaypalSuccess = true;
             }
 
             if (Session["email-success"] != null)
@@ -38,9 +38,13 @@ namespace Suprise.Controllers
 
         #region Paypal
         [Route("checkout/")]
-        [HttpPost]
         public ActionResult PaypalInitPayment(CheckoutModel CheckoutModelProperty)
         {
+            if (Request.HttpMethod == "GET")
+            {
+                return Redirect("/");
+            }
+
             var Model = new IndexModel() { CheckoutModelProperty = CheckoutModelProperty };
             if(
                 string.IsNullOrWhiteSpace(Model.CheckoutModelProperty.Product) ||
@@ -94,6 +98,7 @@ namespace Suprise.Controllers
                         Model.CheckoutModelProperty.IsError = true;
                         Model.CheckoutModelProperty.ErrorMessage = Resources.Abort;
                         ex.Message.LogString();
+                        return View("Index", Model);
                     }
 
                 }
@@ -103,7 +108,6 @@ namespace Suprise.Controllers
                     Model.CheckoutModelProperty.ErrorMessage = Resources.Abort;
                     return View("Index", Model);
                 }
-                return Redirect("/success/");
             }                                
         }
 
@@ -127,6 +131,19 @@ namespace Suprise.Controllers
                 Session["paypal-success"] = true;
                 return Redirect("/");
             }
+        }
+
+        [Route("paypal-error/")]
+        public ActionResult PaypalPaymentError()
+        {
+            var OrderID = (int?)Session["OrderID"];
+            var R = new OrdersRepository();
+            R.TSP_Orders(
+                iud: 2,
+                ID: OrderID
+            );
+            Session["paypal-success"] = false;
+            return Redirect("/");
         }
         #endregion Paypal
 

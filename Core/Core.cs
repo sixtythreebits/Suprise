@@ -205,7 +205,7 @@ namespace Core
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return null;
-                //throw new Exception(response.StatusDescription + Environment.NewLine + response.ErrorMessage + Environment.NewLine + response.Content);
+                (response.StatusDescription + Environment.NewLine + response.ErrorMessage + Environment.NewLine + response.Content).LogString();
             }
             else
             {

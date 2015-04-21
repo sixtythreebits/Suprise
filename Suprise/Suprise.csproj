@@ -296,7 +296,10 @@
     <Content Include="App_Themes\DevEx\ASPxUploadControl.skin" />
     <Content Include="App_Themes\DevEx\ASPxValidationSummary.skin" />
     <Content Include="App_Themes\DevEx\Parameters.config" />
+    <None Include="Properties\PublishProfiles\godaddy.pubxml" />
     <None Include="Properties\PublishProfiles\HQ63BITS.pubxml" />
+    <None Include="Properties\PublishProfiles\james-pinto.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\0\01.jpg" />
     <Content Include="images\angel.png" />
@@ -372,6 +375,7 @@
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>

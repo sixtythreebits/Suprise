@@ -196,10 +196,19 @@
                             $(function () { $(window).scrollTo("#buy-now", { offset: { top: 500 }, duration: 300 }, { easing: 'elasout' }); });
                         </script>
                     }
+                    else if ((bool?)ViewBag.PaypalSuccess == false)
+                    { 
+                        <input type="submit" value="Checkout" />
+                         <p class="error-message">@Core.Properties.Resources.InformationPurchaseError</p><br />
+                        <script>
+                            $(function () { $(window).scrollTo("#buy-now", { offset: { top: 500 }, duration: 300 }, { easing: 'elasout' }); });
+                        </script>
+                    }
                     else
                     { 
-                        <input type="submit" value="Cheackout" />
+                        <input type="submit" value="Checkout" />
                     }
+
                     @if (CheckoutModel.IsError == true)
                     {
                         <p class="error-message">@CheckoutModel.ErrorMessage</p><br />

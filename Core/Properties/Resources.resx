@@ -123,6 +123,9 @@
   <data name="InformationEmailSubscribeSuccess" xml:space="preserve">
     <value>You have successfully subscribed to email list.</value>
   </data>
+  <data name="InformationPurchaseError" xml:space="preserve">
+    <value>Sorry, we could not charge your paypal account.</value>
+  </data>
   <data name="InformationPurchaseSuccess" xml:space="preserve">
     <value>Thank you for purchasing our product.</value>
   </data>
