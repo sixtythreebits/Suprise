@@ -150,7 +150,7 @@ namespace Core
                         amount = new 
                         {
                             total = Price,
-                            currency = "USD",
+                            currency = ConfigurationManager.AppSettings["PaypalCurrency"],
                         },
                         description = string.Format("{0} - ${1}",Caption,Price)
                     }

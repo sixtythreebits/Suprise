@@ -4,6 +4,7 @@ using Core.Utilities;
 using Suprise.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -60,7 +61,7 @@ namespace Suprise.Controllers
             }
             else
             {
-                decimal Price = (decimal)8.70;
+                decimal Price = decimal.Parse(ConfigurationManager.AppSettings["PaypalPrice"]);
                 var R = new OrdersRepository();
                 var OrderID = R.TSP_Orders(
                     iud: 0,
