@@ -485,7 +485,13 @@ section h3{
     .social{
         margin-right:10px;
     }
-  /**{
-      max-width:1000px;
-  }*/
+	
+	.how-it-works > div{
+		width:880px;
+		margin:0 auto;
+	}
+	.how-it-works p{
+		width:700px;
+		margin:0 auto;
+	}
 }
