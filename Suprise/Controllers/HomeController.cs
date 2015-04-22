@@ -119,7 +119,7 @@ namespace Suprise.Controllers
             var Result = PayPalService.ExecutePayment(Request.QueryString["paymentId"], Request.QueryString["PayerID"], OrderID);
             if (Result == null)
             {
-                return Redirect("/error/");
+                return Redirect("/paypal-error/");
             }
             else
             {
